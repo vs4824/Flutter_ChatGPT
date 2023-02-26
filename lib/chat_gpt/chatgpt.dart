@@ -78,7 +78,7 @@ class _ChatBotWidgetState extends State<ChatBotWidget> {
   void initState() {
     super.initState();
     chatGPT = OpenAI.instance.build(
-      token: "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",
+      token: "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",
     );
     Restriction();
     Future.delayed(const Duration(seconds: 1), (){
