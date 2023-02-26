@@ -6,8 +6,10 @@ ChatGPT is a chatbot launched by OpenAI in November 2022. It is built on top of 
 
 ### Install Package
 
-'chat_gpt: 2.0.0
-pub get'
+```
+chat_gpt: 2.0.0
+pub get
+```
 
 #### Example
 
@@ -39,17 +41,20 @@ Create ChatGPT Instance
    Find the time complexity of a function.
    https://beta.openai.com/examples
 
-'final request = CompleteText(prompt: translateEngToThai(word: ''),
+```
+final request = CompleteText(prompt: translateEngToThai(word: ''),
 model: kTranslateModelV3, maxTokens: 200);
 
 openAI.onCompleteStream(request:request).listen((response) => print(response))
 .onError((err) {
 print("$err");
-});'
+});
+```
 
 5. Complete with StreamBuilder
 
-'final tController = StreamController<CTResponse?>.broadcast();
+```
+final tController = StreamController<CTResponse?>.broadcast();
 
 openAI
 .onCompleteStream(request: request)
@@ -66,11 +71,13 @@ final data = snapshot.data;
 if(snapshot.connectionState == ConnectionState.done) return something
 if(snapshot.connectionState == ConnectionState.waiting) return something
 return something
-})'
+})
+```
 
 6. Complete with Feature
 
-'void _translateEngToThai() async{
+```
+void _translateEngToThai() async{
 final request = CompleteText(
 prompt: translateEngToThai(word: _txtWord.text.toString()),
 max_tokens: 200,
@@ -78,11 +85,13 @@ model: kTranslateModelV3);
 
 final response = await openAI.onCompleteText(request: request);
 print(response);
-}'
+}
+```
 
 Example Q&A
 Answer questions based on existing knowledge.
 
+```
 final request = CompleteText(prompt:'What is human life expectancy in the United States?'),
 model: kTranslateModelV3, maxTokens: 200);
 
@@ -90,6 +99,7 @@ openAI.onCompleteStream(request:request).listen((response) => print(response))
 .onError((err) {
 print("$err");
 });
+```
 
 Request
 
@@ -111,6 +121,7 @@ Generate Image
        A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse.
        Generate with stream
 
+```
 openAI = OpenAI
 .instance
 .builder(toekn:"token",
@@ -128,9 +139,11 @@ final request = GenerateImage(prompt,2);
 
 /// cancel stream controller
 openAI.genImgClose();
+```
 
 Generate with feature
 
+```
 void _generateImage() {
 const prompt = "cat eating snake blue red.";
 
@@ -138,9 +151,10 @@ final request = GenerateImage(prompt,2);
 final response = openAI.generateImage(request);
 print("img url :${response.data?.last?.url}");
 }
+```
 
 Model List
 
 List and describe the various models available in the API. You can refer to the Models documentation to understand what models are available and the differences between them.
 
-final models = await openAI.listModel();
+```final models = await openAI.listModel();```
