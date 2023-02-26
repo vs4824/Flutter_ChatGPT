@@ -147,7 +147,7 @@ final models = await openAI.listModel();
 
 ##### Flutter Example
 
-class MyApp extends StatelessWidget {
+'class MyApp extends StatelessWidget {
 const MyApp({Key? key}) : super(key: key);
 
 @override
@@ -500,4 +500,4 @@ size: 22.0,
 ),
 );
 }
-}
+}'
